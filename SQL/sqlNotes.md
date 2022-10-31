@@ -38,6 +38,8 @@ ENUM
 ```SQL
 CREATE TABLE length(length ENUM('small','medium','large'));
 ```
+<br/>
+
 ### Create Employee Table
 EMPLOYEE(<u>EmployeeNumber</u>, FirstName, LastName, *Department*, Phone, Email)
 AUTO_Increment=x: Surrogate key. Start from x, increment by 1
