@@ -35,7 +35,7 @@ DATETIME
 - Display Format: YYYY-MM-DD HH:MM:SS
 <br/>
 ENUM
-``` SQL
+```sql
 CREATE TABLE length(length ENUM('small','medium','large'));
 ```
 ### Create Employee Table
@@ -54,6 +54,5 @@ CREATE TABLE EMPLOYEE
     DEPARTMENT(DepartmentName)on UPDATE CASCADE
 );
 ```
-
 VarChar(100): defines a string with length up to 100 characers, the storage **is up** to 100 characters
 Char(35): define a string with length up to 35 characters, the storage is **fixed to** 35 characters
