@@ -56,5 +56,45 @@ CREATE TABLE EMPLOYEE
 );
 ```
 <br/>
-VarChar(100): defines a string with length up to 100 characers, the storage **is up** to 100 characters
-Char(35): define a string with length up to 35 characters, the storage is **fixed to** 35 characters
+  VarChar(100): defines a string with length up to 100 characers, the storage **is up** to 100 characters
+
+  Char(35): define a string with length up to 35 characters, the storage is **fixed to** 35 characters
+
+### Order to Create Tables
+DEPARMENT(<ul>DepartmentName</ul>, BudgetCode, OfficeNumber, Phone)
+EMPLOYEE(<ul>EmployeeNumber</ul>, FirstName, LastName, *Department*, Phone Email)
+PROJECT(<ul>ProjectID</ul>,ProjectName, *Department*, MaxHours, StartHours, StartDate, EndDate)
+ASSIGNMENT(<ul>ProjectID</ul>,<ul>EmployeeNumber</ul>,HoursWorked)
+
+- ASSIGNMENT is dependent on PROJECT and EMPLOYEE
+- PROJECT is dependent on DEPARTMENT
+- EMPLOYEE is dependent on DEPARTMENT
+- So the right order is: 
+    1. DEPARTMENT
+    2. EMPLOYEE and PROJECT 
+    3. ASSIGNMENT
+
+### Insert Data
+DEPARTMENT(<ul>DepartmentName</ul>, BudgetCode, OfficeNumber, Phone)
+``` SQL
+INSERT INTO DEPARTMENT VALUES ('Administration', 'BC-100-10', 'BLDG01-300','360-285-8100')
+```
+Insert Data to Employee Table
+EMPLOYEE(<ul>EmployeeNumber</ul>, FirstName, LastName, *Department*, Phone, Email)
+```SQL
+INSERT INTO EMPLOYEE VALUES (NULL, 'Mary', 'Jacobs', 'Administration', '360-285-8100', 'Mary.Jacobs@wpc.com')
+```
+- EmployeeNumber is a surrogate key, no need to insertEmployeeNumber
+- Department is a foreign key, so we need to make sure it does exist in the DEPARTMENT table
+What if no phone number information for the employee? When we define EMPLOYEE table, we allow phone number to be NULL.
+``` SQL
+INSERT INTO EMPLOYEE VALUES (NULL, 'Mary', 'Nestor', 'InfoSystems', NULL, 'Mary.Jacobs@wpc.com')
+```
+### Drop Tables
+Tables dropped in reverse order of creating tables. Less Dependency can be dropped first. Main table must be dropped last! 
+``` SQL
+DROP TABLE ASSIGNMENT;
+DROP TABLE PROJECT;
+DROP TABLE EMPLOYEE;
+DROP TABLE DEPARTMENT;
+```
