@@ -41,7 +41,7 @@ CREATE TABLE length(length ENUM('small','medium','large'));
 ### Create Employee Table
 EMPLOYEE(<u>EmployeeNumber</u>, FirstName, LastName, *Department*, Phone, Email)
 AUTO_Increment=x: Surrogate key. Start from x, increment by 1
-```SQL
+``` SQL
 CREATE TABLE EMPLOYEE
 (
     EmployeeNumber Int NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -54,5 +54,6 @@ CREATE TABLE EMPLOYEE
     DEPARTMENT(DepartmentName)on UPDATE CASCADE
 );
 ```
+
 VarChar(100): defines a string with length up to 100 characers, the storage **is up** to 100 characters
 Char(35): define a string with length up to 35 characters, the storage is **fixed to** 35 characters
