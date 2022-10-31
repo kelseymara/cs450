@@ -35,7 +35,7 @@ DATETIME
 - Display Format: YYYY-MM-DD HH:MM:SS
 <br/>
 ENUM
-```sql
+```SQL
 CREATE TABLE length(length ENUM('small','medium','large'));
 ```
 ### Create Employee Table
@@ -56,16 +56,19 @@ CREATE TABLE EMPLOYEE
 );
 ```
 <br/>
+
   VarChar(100): defines a string with length up to 100 characers, the storage **is up** to 100 characters
 
   Char(35): define a string with length up to 35 characters, the storage is **fixed to** 35 characters
 
 ### Order to Create Tables
 DEPARMENT(<ul>DepartmentName</ul>, BudgetCode, OfficeNumber, Phone)
+<br/>
 EMPLOYEE(<ul>EmployeeNumber</ul>, FirstName, LastName, *Department*, Phone Email)
+<br/>
 PROJECT(<ul>ProjectID</ul>,ProjectName, *Department*, MaxHours, StartHours, StartDate, EndDate)
+<br/>
 ASSIGNMENT(<ul>ProjectID</ul>,<ul>EmployeeNumber</ul>,HoursWorked)
-
 - ASSIGNMENT is dependent on PROJECT and EMPLOYEE
 - PROJECT is dependent on DEPARTMENT
 - EMPLOYEE is dependent on DEPARTMENT
