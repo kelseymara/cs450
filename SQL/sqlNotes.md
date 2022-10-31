@@ -35,7 +35,7 @@ DATETIME
 - Display Format: YYYY-MM-DD HH:MM:SS
 <br/>
 ENUM
-```sql
+``` SQL
 CREATE TABLE length(length ENUM('small','medium','large'));
 ```
 ### Create Employee Table
