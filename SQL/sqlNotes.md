@@ -35,9 +35,11 @@ DATETIME
 - Display Format: YYYY-MM-DD HH:MM:SS
 <br/>
 ENUM
-```sql
+
+```SQL
 CREATE TABLE length(length ENUM('small','medium','large'));
 ```
+
 ### Create Employee Table
 EMPLOYEE(<u>EmployeeNumber</u>, FirstName, LastName, *Department*, Phone, Email)
 AUTO_Increment=x: Surrogate key. Start from x, increment by 1
