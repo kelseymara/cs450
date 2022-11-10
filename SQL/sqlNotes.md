@@ -81,6 +81,8 @@ DEPARTMENT(<ul>DepartmentName</ul>, BudgetCode, OfficeNumber, Phone)
 ``` SQL
 INSERT INTO DEPARTMENT VALUES ('Administration', 'BC-100-10', 'BLDG01-300','360-285-8100')
 ```
+- Note: When inserting INT, do not include ' '
+  
 Insert Data to Employee Table
 EMPLOYEE(<ul>EmployeeNumber</ul>, FirstName, LastName, *Department*, Phone, Email)
 ```SQL
@@ -173,6 +175,56 @@ this is equivalent to:
 SELECT FirstName, LastName, Department
 FROM Employee
 WHERE Department = 'Finance' OR Department='Accounting' OR Department='Marketing';
+```
+
+### THE LOGICAL NOT OPERATOR 
+- Any criteria statement may be preceded by a NOT operator which is to say that all information will be shown except that information matching the specified criteria
+  
+``` SQL 
+SELECT FirstName, LastName, Department
+FROM EMPLOYEE
+WHERE Department NOT IN ('Accounting', 'Finance', 'Marketing');
+```
+This is equivalent to
+
+``` SQL
+SELECT FirstName, LastName, Department
+FROM EMPLOYEE
+WHERE Department <> 'Accounting'
+AND Department <> 'Finance'
+AND Department <> 'Marketing';
+```
+### Wildcards
+- The SQL LIKE keyword allow searches on partial data values
+- LIKE can be paired with wildcards to find rows matching a string value
+- Multiple character wildcard character is a percent sign(%)
+- Single character wildcard character is an underscore (_)
+
+Find all employees whose last name starts with "J".
+``` SQL 
+SELECT *
+FROM EMPLOYEE
+WHERE LastName LIKE 'J%';
+```
+Find all employees whose last name starts with "J" and only has 5 letters in total.
+four underscores:
+``` SQL
+SELECT *
+FROM EMPLOYEE
+WHERE LastName LIKE 'J____'
+```
+Find all rows which have null values for a specified attribute: 
+``` SQL
+SELECT FirstName, LastName, Phone, Department
+FROM EMPLOYEE
+WHERE Phone IS NULL;
+```
+Sorting Results 
+- Query results may be sorted using the ORDER BY clause 
+``` SQL 
+SELECT *
+FROM EMPLOYEE
+ORDER BY LastName;
 ```
 
 
